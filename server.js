@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const shortid = require('shortid');
 const port = process.env.PORT || 5000;
-const connectionString = process.env.MONGODB_URL;
+// const connectionString = process.env.MONGODB_URL;
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use('/', express.static(__dirname + '/build'));
 app.get('/', (req, res) => res.sendFile(__dirname + '/build/index.html'));
 
-mongoose.connect(connectionString || 'mongodb://localhost/react-shopping-cart-db', {
+mongoose.connect(MONGODB_URL || 'mongodb://localhost/react-shopping-cart-db', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
